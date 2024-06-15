@@ -1,4 +1,5 @@
 import React from "react";
+import {motion} from "framer-motion"
 
 const Sidebar = () => {
   const sidebarValues = [
@@ -10,11 +11,11 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="z-[1] bg-white text-black gap-10">
+    <div className="z-[1] bg-white text-black flex flex-col">
       {sidebarValues.map((value) => (
-        <div key={value} className="font-bold text-xl">
+        <a href={`#${value}`} key={value} className="font-bold text-xl pt-8">
           {value}
-        </div>
+        </a>
       ))}
     </div>
   );

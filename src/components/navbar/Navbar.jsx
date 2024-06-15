@@ -10,6 +10,35 @@ import { ImCross } from "react-icons/im";
 const Navbar = () => {
   const [clicked, isClicked] = useState(false);
 
+  const sidebarVariants = {
+    hidden: {
+      x: "-100%",
+      opacity: 0,
+      transition: {
+        // it will have spring like effect
+        type: "spring",
+        // it will like spring, for more more hard
+        stiffness: 75,
+        // damping of the spring effect  higher value low occilation
+        damping: 20,
+        duration: 0.5,
+      },
+    },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        // it will have spring like effect
+        type: "spring",
+        // it will like spring, for more more hard
+        stiffness: 75,
+        // damping of the spring effect  higher value low occilation
+        damping: 20,
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
     <div className="py-10">
       <div
@@ -41,18 +70,20 @@ const Navbar = () => {
         </motion.div>
       </div>
 
-      <div
-        className={`py-8 absolute duration-700 ease-in-out ${
-          (clicked ? "left-0" : "left-[-100%]",
-          clicked ? "relative" : "absloute",
-          clicked ? "block" : "hidden")
-        }  bg-white top-0 h-[100vh] w-[25%] flex flex-col items-center justify-center`}
+      <motion.div
+        initial="hidden"
+        animate={clicked ? "visible" : "hidden"}
+        variants={sidebarVariants}
+        className={`py-8 absolute bg-white top-0 h-[100vh] w-[25%] flex flex-col items-center justify-center`}
       >
-        <div className="text-red-500 w-12 h-12 flex items-center text-xl justify-center rounded-full absolute top-4 right-4" onClick={() => isClicked(!clicked)}>
+        <div
+          className="text-red-500 w-12 h-12 flex items-center text-xl justify-center rounded-full absolute top-4 right-4 cursor-pointer"
+          onClick={() => isClicked(!clicked)}
+        >
           <ImCross />
         </div>
         <Sidebar />
-      </div>
+      </motion.div>
     </div>
   );
 };
