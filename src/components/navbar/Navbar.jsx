@@ -40,7 +40,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="py-10">
+    <div className="py-10 h-32">
       <div
         className="button px-8 font-bold text-2xl w-24 z-50"
         onClick={() => isClicked(!clicked)}
