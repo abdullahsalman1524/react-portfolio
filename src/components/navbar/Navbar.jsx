@@ -49,7 +49,7 @@ const Navbar = () => {
           <RxHamburgerMenu />
         </div>
       </div>
-      <div className="px-48  w-[90%] left-24 flex justify-between font-extrabold relative -top-10 z-0">
+      <div className="px-48 w-[90%] left-24 flex justify-between font-extrabold relative -top-10 z-0">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
